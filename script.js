@@ -1,6 +1,6 @@
 'use strict' ;
 
-const searchBS = 'web' ;
+const searchBS = ' web ' ;
 let searchUserId;
 
 users.forEach ( function ( arrayUsers ) {
