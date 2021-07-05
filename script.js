@@ -11,7 +11,7 @@ users.forEach ( function ( arrayUsers ) {
         
         todos.forEach ( function ( arrayToDo ) {
             if ( arrayToDo.userId === arrayUsers.id && arrayToDo.completed === false ) {  
-                console.log ( `\t${arrayToDo.title}` ) ;
+                console.log ( `\t- ${arrayToDo.title}` ) ;
             }
         } ) ;
 
