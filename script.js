@@ -1,7 +1,6 @@
 'use strict' ;
 
 const searchBS = ' web ' ;
-let searchUserId;
 
 let arrayUsers = users.filter( object =>                                                     //находим искомых пользователей
     object.company.bs.toLowerCase().includes( searchBS.toLowerCase() ) ) ; 
