@@ -3,20 +3,27 @@
 const searchBS = ' web ' ;
 let searchUserId;
 
-users.forEach ( function ( arrayUsers ) {
-    
-    if ( arrayUsers.company.bs.toLowerCase().includes ( searchBS.toLocaleLowerCase() ) ) {
+let arrayUsers = users.filter( object =>                                                            //находим искомых пользователей
+    object.company.bs.toLowerCase().includes( searchBS.toLowerCase() ) ) ; 
 
-        console.log ( `Web-developer - ${arrayUsers.name}:` ) ;
-        
-        todos.forEach ( function ( arrayToDo ) {
-            if ( arrayToDo.userId === arrayUsers.id && arrayToDo.completed === false ) {  
-                console.log ( `\t- ${arrayToDo.title}` ) ;
-            }
-        } ) ;
+arrayUsers.forEach( object => {                                                                     //для каждого пользователя.......... =>
 
-    }
+    object.notComplete = {} ;
+
+    let notCompleted = todos.filter( objectTodos =>                                                 //находим невыполненные задачи и .............. =>
+        String( object.id ) === String( objectTodos.userId )  && objectTodos.completed === false 
+    ) ;
+
+    let key = 1 ;
+    notCompleted.forEach( objectNotCompleted => {                                                   //добавляем невыполненные задачи этому пользователю
+        object.notComplete[ key++ ] = objectNotCompleted.title ;
+    } ) ;
 
 } ) ;
 
-
+arrayUsers.forEach( finalUser => {                                                                  //выводим результат
+    console.log( `пользователь - ${finalUser.name}\nневыполненные задачи:` ) ;
+    for( let key in finalUser.notComplete ) {
+        console.log( `${key} - ${finalUser.notComplete[ key ]}` )
+    }
+} ) ;
