@@ -9,7 +9,7 @@ let arrayUsers = users.filter( object =>                                        
 arrayUsers.forEach( object => {                                                               //для каждого найденного пользователя... =>
 
     let notCompleted = todos.filter( objectTodos =>                                                 //находим невыполненные задачи и ... =>
-        String( object.id ) === String( objectTodos.userId )  && objectTodos.completed === false 
+        String( object.id ) === String( objectTodos.userId ) && objectTodos.completed === false 
     ) ;
 
     let key = 1 ;
